@@ -1,0 +1,6 @@
+@nezter_backend_HostAddress = http://localhost:5270
+
+GET {{nezter_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

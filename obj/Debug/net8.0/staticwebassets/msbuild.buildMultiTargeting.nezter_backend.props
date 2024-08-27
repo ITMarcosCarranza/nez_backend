@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/nezter_backend.props" />
+</Project>
