@@ -8,38 +8,54 @@ namespace nezter_backend
     public class UserController : ControllerBase
     {
         private readonly ILogger<UserController> _logger;
-        private UserService _userService;
-
+        // private UserService _userService;
+        private UserServiceSqlite _userService;
         private readonly IConfiguration _configuration;
         public UserController(ILogger<UserController> logger, IConfiguration configuration)
         {
             _logger = logger;
             _configuration = configuration;
+            _userService = new UserServiceSqlite(_configuration);
         }
 
 
         [HttpGet]
-        public IActionResult Get()
-        {   _userService = new UserService(_configuration);
-            var users = _userService.GetUsers();
+        public async Task<IEnumerable<UserView>> Get()
+        {
 
-        
-            return  new JsonResult(User);
+            var users = await _userService.GetUsers();
+
+
+            return users;
         }
 
         [HttpPost]
 
-        public IActionResult Post(User user){
+        public async Task<IActionResult> Post([FromForm] User user)
+        {
 
-            if (!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 var errors = ModelState.Values.SelectMany(err => err.Errors);
-                return  new JsonResult(errors);
+                return new JsonResult(errors);
             }
-            var result = _userService.CreateUser(user);
-            if (!result){
-                return new JsonResult(new { error="Could not create user" });
+            var result = await _userService.CreateUser(user);
+            if (!result)
+            {
+                return new JsonResult(new { error = "Could not create user" });
             }
             return Redirect("/User");
+
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Deactivate()
+        {
+            var user = await _userService.Deactivate("memo");
+
+           
+            return Ok();
+          
 
         }
 

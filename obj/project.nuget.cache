@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ffXlJYomhKrJNXFlIh8VdyUeslMqYywhkVaWveEtMbnacWXm7lqXZj/l02K4Zcefr5pA5JgfVNN7SRYhGjPIGA==",
+  "dgSpecHash": "zo5vioZ+OC0S3MWKeqqILgwy/tOQhticnQYimz8cltwNP4I3YDWcYilC3vZCwIDTd9+F/DC2DjZnyU3Md+I21Q==",
   "success": true,
   "projectFilePath": "/home/marcos/examen_Nezter/nezter_backend/nezter_backend.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,8 @@
     "/home/marcos/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/home/marcos/.nuget/packages/microsoft.data.sqlclient/5.2.1/microsoft.data.sqlclient.5.2.1.nupkg.sha512",
     "/home/marcos/.nuget/packages/microsoft.data.sqlclient.sni.runtime/5.2.0/microsoft.data.sqlclient.sni.runtime.5.2.0.nupkg.sha512",
+    "/home/marcos/.nuget/packages/microsoft.data.sqlite/8.0.8/microsoft.data.sqlite.8.0.8.nupkg.sha512",
+    "/home/marcos/.nuget/packages/microsoft.data.sqlite.core/8.0.8/microsoft.data.sqlite.core.8.0.8.nupkg.sha512",
     "/home/marcos/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/home/marcos/.nuget/packages/microsoft.identity.client/4.60.3/microsoft.identity.client.4.60.3.nupkg.sha512",
     "/home/marcos/.nuget/packages/microsoft.identity.client.extensions.msal/4.60.3/microsoft.identity.client.extensions.msal.4.60.3.nupkg.sha512",
@@ -23,6 +25,10 @@
     "/home/marcos/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "/home/marcos/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/home/marcos/.nuget/packages/microsoft.sqlserver.server/1.0.0/microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "/home/marcos/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.6/sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
+    "/home/marcos/.nuget/packages/sqlitepclraw.core/2.1.6/sqlitepclraw.core.2.1.6.nupkg.sha512",
+    "/home/marcos/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.6/sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",
+    "/home/marcos/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.1.6/sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg.sha512",
     "/home/marcos/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "/home/marcos/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "/home/marcos/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

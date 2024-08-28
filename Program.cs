@@ -1,12 +1,17 @@
 
+using Microsoft.Data.Sqlite;
+using SQLitePCL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 
 builder.Services.AddCors(options=>{
     options.AddPolicy(name:"localHostPolicy",policy=>{
@@ -14,6 +19,10 @@ builder.Services.AddCors(options=>{
     });
 });
 
+
+var connection=new SqliteConnection("Data Source= Nezter.db");
+connection.Open();
+connection.Close();
 
 var app = builder.Build();
 
