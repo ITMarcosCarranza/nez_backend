@@ -1,4 +1,5 @@
 using Microsoft.Data.Sqlite;
+using SQLitePCL;
 
 namespace nezter_backend
 {
@@ -102,6 +103,37 @@ namespace nezter_backend
             }
 
         }
+
+    public async  Task<UserView> GetUser(string name){
+
+           var user = new UserView();
+        try{
+            using (var connection = new SqliteConnection("Data Source=Nezter.db"))
+            {
+                var sql="select * from Users where Nombre=@NAME";
+                SqliteCommand command = new SqliteCommand(sql,connection);
+                command.Parameters.AddWithValue("@NAME",name);
+                SqliteDataReader reader = await command.ExecuteReaderAsync();
+                while(await reader.ReadAsync()){
+                    user.Nombre= reader.GetString(0);
+                    user.Apellido= reader.GetString(0);
+                    user.Direccion= reader.GetString(0);
+                    user.Telefono= reader.GetString(0);
+                    user.Ciudad = reader.GetString(0);
+                    user.Estado = reader.GetString(0);
+                    
+                }
+            }
+            
+        }
+        catch (System.Exception)
+        {
+            
+            throw;
+        }
+
+        return user;
+    }
 
     }
 

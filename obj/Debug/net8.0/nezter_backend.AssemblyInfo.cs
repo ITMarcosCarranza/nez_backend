@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("nezter_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d27881f1f1a74e9ca8f21fa12eceb70dbf357d1c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6c4cdb70c15ae2794cc876bb7ca8d54f958b7df")]
 [assembly: System.Reflection.AssemblyProductAttribute("nezter_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("nezter_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

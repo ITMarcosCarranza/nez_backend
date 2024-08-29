@@ -53,12 +53,20 @@ namespace nezter_backend
         {
             var user = await _userService.Deactivate("memo");
 
-           
+
             return Ok();
-          
+
 
         }
 
+        [HttpGet]
+        public IActionResult GetUser(string name)
+        {
+
+            var result = _userService.GetUser(name);
+
+            return Redirect("/user");
+        }
 
 
 
