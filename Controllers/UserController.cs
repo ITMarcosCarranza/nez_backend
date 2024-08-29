@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace nezter_backend
 {
@@ -49,9 +50,9 @@ namespace nezter_backend
         }
 
         [HttpPut]
-        public async Task<IActionResult> Deactivate()
+        public async Task<IActionResult> Deactivate([FromQuery]string name)
         {
-            var user = await _userService.Deactivate("memo");
+            var user = await _userService.Deactivate(name);
 
 
             return Ok();
@@ -60,12 +61,17 @@ namespace nezter_backend
         }
 
         [HttpGet]
-        public IActionResult GetUser(string name)
+        [Route("profile")]
+        public async Task<IActionResult> GetUser(string name)
         {
 
-            var result = _userService.GetUser(name);
+            var user = await _userService.GetUser(name);
+            if(user.Nombre.IsNullOrEmpty()){
+                return new NotFoundResult();
 
-            return Redirect("/user");
+            }
+            return new JsonResult(user);
+
         }
 
 

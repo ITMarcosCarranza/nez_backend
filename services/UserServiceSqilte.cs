@@ -89,8 +89,9 @@ namespace nezter_backend
                 using (var connection = new SqliteConnection("Data Source=Nezter.db"))
                 {
                     await connection.OpenAsync();
-                    var sql = "Delete from Users where Nombre='Memo'";
+                    var sql = "Delete from Users where Nombre=@NAME";
                     SqliteCommand command = new SqliteCommand(sql, connection);
+                    command.Parameters.AddWithValue("@NAME",name);
                     int result = await command.ExecuteNonQueryAsync();
 
                     return result > 0;
@@ -113,6 +114,7 @@ namespace nezter_backend
                 var sql="select * from Users where Nombre=@NAME";
                 SqliteCommand command = new SqliteCommand(sql,connection);
                 command.Parameters.AddWithValue("@NAME",name);
+                connection.Open();
                 SqliteDataReader reader = await command.ExecuteReaderAsync();
                 while(await reader.ReadAsync()){
                     user.Nombre= reader.GetString(0);
@@ -124,6 +126,7 @@ namespace nezter_backend
                     
                 }
             }
+           
             
         }
         catch (System.Exception)
