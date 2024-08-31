@@ -9,7 +9,7 @@ namespace nezter_backend
     public class UserController : ControllerBase
     {
         private readonly ILogger<UserController> _logger;
-        // private UserService _userService;
+    
         private UserServiceSqlite _userService;
         private readonly IConfiguration _configuration;
         public UserController(ILogger<UserController> logger, IConfiguration configuration)
@@ -21,10 +21,10 @@ namespace nezter_backend
 
 
         [HttpGet]
-        public async Task<IEnumerable<UserView>> Get()
+        public async Task<IEnumerable<UserView>> Get(int page=1)
         {
 
-            var users = await _userService.GetUsers();
+            var users = await _userService.GetUsers(page);
 
 
             return users;
@@ -50,9 +50,9 @@ namespace nezter_backend
         }
 
         [HttpPut]
-        public async Task<IActionResult> Deactivate([FromQuery]string name)
+        public async Task<IActionResult> Deactivate([FromQuery]int id)
         {
-            var user = await _userService.Deactivate(name);
+            var user = await _userService.Deactivate(id);
 
 
             return Ok();
@@ -62,19 +62,16 @@ namespace nezter_backend
 
         [HttpGet]
         [Route("profile")]
-        public async Task<IActionResult> GetUser(string name)
+        public async Task<IActionResult> GetUser(int id)
         {
 
-            var user = await _userService.GetUser(name);
+            var user = await _userService.GetUser(id);
             if(user.Nombre.IsNullOrEmpty()){
                 return new NotFoundResult();
 
             }
             return new JsonResult(user);
-
         }
-
-
 
     }
 }
